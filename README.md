@@ -58,7 +58,7 @@ initially to generate a calibration, and then to retrain the base model). In bot
 holdout data which was not used in the development of either model or calibration.
 
 
-[!results/calibration.png]
+![Example Calibration Plot](results/calibration.png "Example Calibration Plot")
 
 
 ### Pattern Two
