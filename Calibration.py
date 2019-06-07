@@ -28,17 +28,19 @@ def generate_calibration_model(df, pred_col, actual_col):
 # #######################################################################################
 def generate_reliability_plot(df, pred_cols, actual_col):
     fig = plt.figure()
-    cols = ['r.', 'g.-', 'b-', 'c.', 'm.', 'k.', 'y.']
+    cols = ['r.', 'g.', 'b.', 'c.', 'm.', 'k.', 'y.']
     index = 0
     for pred_col in pred_cols:
         #print(pred_col)
         temp = df.sort_values(by=[pred_col]).copy()
-        temp['group'] = (round(temp[pred_col]*50)*2)/100
+        temp['group'] = round( temp[pred_col]*50 ) / 50
         plotdf = temp.groupby('group')[actual_col].mean()
         plt.plot(plotdf, cols[index], markersize=12)
-        index = index + 1
+        index = index + 1 
     plt.legend(pred_cols, loc='upper left')
     plt.title('Reliability Plot')
+    plt.xlabel('Predicted Probability')
+    plt.ylabel('Empirical Probability')
     return plt
 
 
