@@ -45,34 +45,22 @@ the original target feature, and the target must be binomial and numeric (i.e. 0
 We have generated an example dataset generated from a real credit risk problem. In this instance we are trying
 predict the probability of default. 
 
-In the script [example.py](example.py) you will see how these scored data sets are used to build an isotonic 
-regression calibration model on the validations scores. It then generates the plot shown below that compares
-the expected vs. empirical probabilities (Reliability Plot) on the holdout data. 
+In the script [example.py](example.py) you will see how these scored data sets are used to build an Platt Scaling
+calibration model on the validations scores (There are functions for Isotonic Regression as well). 
+The script then generates the plot shown below that compares the expected vs. empirical probabilities (Reliability Plot) on the holdout data. 
 
-We apply the calibration to the holdout forecasts from the original model, comapred against the orginal probabilities
+We apply the calibration to the holdout forecasts from the original model, compared against the original probabilities
 output by this model (i.e. validation data is only used for calibration). We add an additional series to show the probabilities
 output by a second model retrained to include the validation data (i.e. validation data is used twice,
 initially to generate a calibration, and then to retrain the base model). In both instances the forecast is on
 holdout data which was not used in the development of either model or calibration.
-
 
 ![Example Calibration Plot](results/calibration.png "Calibration Plot - original model, calibrated model and retrained model")
 
 
 ### Pattern Two
 
-TODO
-
-The file [app.py](app.py) and the contents of the [templates](templates) directory is a python flask 
-web application you can use to create a new DataRobot project on a dataset and then apply the calibration.
-
-To run:
-
-```
-python app.py
-```
-
-Then follow the prompts
+TODO: This pattern will build and calibrate the model in one script.
 
 
 
